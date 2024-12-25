@@ -23,6 +23,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./DockerFile
+          file: ./Dockerfile
           push: true
-          tags: thesqd123/vnhax-bot:latest
+          tags: thesqd/vnhax-bot:latest

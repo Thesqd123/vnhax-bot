@@ -3,7 +3,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 # Load TOKEN from environment variable
-TOKEN = os.getenv('TOKEN')
+TOKEN = '7705585839:AAEgf-F-OMeKE5Dw_LwMITgQSVT_7wNFYDc'
 
 # Start Command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):

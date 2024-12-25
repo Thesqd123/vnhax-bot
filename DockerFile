@@ -1,17 +1,17 @@
 # Use Python slim image
 FROM python:3.9-slim
 
-# Set the working directory inside the container
+# Set working directory inside the container
 WORKDIR /app
 
 # Copy requirements.txt first to cache dependencies
 COPY requirements.txt .
 
-# Update pip and install dependencies
+# Install dependencies
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the app files
+# Copy app files
 COPY . /app
 
 # Expose the port (if needed)

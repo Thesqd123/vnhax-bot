@@ -4,20 +4,12 @@ FROM python:3.9-slim
 # Set the working directory inside the container
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    gcc libffi-dev python3-dev musl-dev libpq-dev && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
-
 # Copy requirements.txt first to cache dependencies
 COPY requirements.txt .
 
-# Upgrade pip and install dependencies
+# Update pip and install dependencies
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Debugging Step - Check if 'telegram' module is installed
-RUN python -c "import telegram; print('Module telegram is installed')"
 
 # Copy the rest of the app files
 COPY . /app

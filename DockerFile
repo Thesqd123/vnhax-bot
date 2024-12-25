@@ -4,18 +4,16 @@ FROM python:3.9-slim
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy requirements.txt first to cache dependencies
+# Copy and install dependencies
 COPY requirements.txt .
-
-# Update pip and install dependencies
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the app files
 COPY . /app
 
-# Expose the port (if needed)
+# Expose the port (not mandatory, just for visibility)
 EXPOSE 80
 
-# Command to run the bot
+# Start the bot
 CMD ["python", "main.py"]

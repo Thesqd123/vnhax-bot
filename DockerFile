@@ -8,10 +8,11 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Update pip and install dependencies
+RUN apt-get update && apt-get install -y gcc libffi-dev python3-dev musl-dev libpq-dev
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Debugging Step: Check if 'telegram' module is installed
+# Debugging Step - Check if 'telegram' module is installed
 RUN python -c "import telegram; print('Module telegram is installed')"
 
 # Copy the rest of the app files
